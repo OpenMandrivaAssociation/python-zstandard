@@ -7,6 +7,8 @@ URL:		https://pypi.org/project/zstandard/
 License:	BSD
 Group:		Development/Python
 BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(libzstd)
 
 %description
 Zstandard bindings for Python
