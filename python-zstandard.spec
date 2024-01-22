@@ -17,6 +17,7 @@ Zstandard bindings for Python
 %autosetup -p1 -n zstandard-%{version}
 
 %build
+export CC="%{__cc}"
 %py_build
 
 %install
