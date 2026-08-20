@@ -1,6 +1,6 @@
 Name:		python-zstandard
 Version:	0.25.0
-Release:	1
+Release:	2
 Source0:	https://files.pythonhosted.org/packages/source/z/zstandard/zstandard-%{version}.tar.gz
 Summary:	Zstandard bindings for Python
 URL:		https://pypi.org/project/zstandard/
@@ -19,6 +19,8 @@ Zstandard bindings for Python
 
 %build
 export CC="%{__cc}"
+# setuptools does not add -lpython; %%build_ldflags has --no-undefined
+export LDFLAGS="${LDFLAGS:-%{build_ldflags}} $(pkg-config --libs python3)"
 %py_build
 
 %install
