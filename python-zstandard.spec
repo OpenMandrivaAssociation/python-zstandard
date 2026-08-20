@@ -8,7 +8,7 @@ License:	BSD
 Group:		Development/Python
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
-BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python3-embed)
 BuildRequires:	pkgconfig(libzstd)
 
 %description
@@ -20,7 +20,7 @@ Zstandard bindings for Python
 %build
 export CC="%{__cc}"
 # setuptools does not add -lpython; %%build_ldflags has --no-undefined
-export LDFLAGS="${LDFLAGS:-%{build_ldflags}} $(pkg-config --libs python3)"
+export LDFLAGS="${LDFLAGS:-%{build_ldflags}} $(pkg-config --libs python3-embed)"
 %py_build
 
 %install
