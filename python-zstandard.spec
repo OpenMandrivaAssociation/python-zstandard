@@ -1,6 +1,6 @@
 Name:		python-zstandard
 Version:	0.25.0
-Release:	2
+Release:	3
 Source0:	https://files.pythonhosted.org/packages/source/z/zstandard/zstandard-%{version}.tar.gz
 Summary:	Zstandard bindings for Python
 URL:		https://pypi.org/project/zstandard/
