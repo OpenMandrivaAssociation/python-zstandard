@@ -2,6 +2,9 @@ Name:		python-zstandard
 Version:	0.25.0
 Release:	3
 Source0:	https://files.pythonhosted.org/packages/source/z/zstandard/zstandard-%{version}.tar.gz
+# setuptools removed py39compat; cross builds set SETUPTOOLS_EXT_SUFFIX
+# and setup.py then dies with NameError on the unbound name.
+Patch0:		python-zstandard-py39compat.patch
 Summary:	Zstandard bindings for Python
 URL:		https://pypi.org/project/zstandard/
 License:	BSD

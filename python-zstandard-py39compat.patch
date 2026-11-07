@@ -1,0 +1,14 @@
+--- a/setup.py	2026-11-07 16:59:42.614899779 +0100
++++ b/setup.py	2026-11-07 16:59:42.631425804 +0100
+@@ -37,6 +37,11 @@
+     # Work around the issue so that cross-compilation can work
+     # properly.
+     sysconfig.get_config_vars()["EXT_SUFFIX"] = ext_suffix
++    # setuptools dropped _distutils.compat.py39 / _distutils.py39compat.
++    # Both imports then fail and leave the name unbound, so the check
++    # below raises NameError. Current setuptools no longer overwrites
++    # EXT_SUFFIX from that helper; skipping the monkeypatch is correct.
++    py39compat = None
+     try:
+         # Older versions of python didn't have EXT_SUFFIX, and setuptools
+         # sets its own value, but since we've already set one, we don't
